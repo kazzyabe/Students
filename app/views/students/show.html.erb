@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= @student.name %></title>
+  <style>
+    div.<%= @student.name %> {
+      border-style: solid;
+      border-color: <%= @student.color %> ;
+      width: <%= @student.weight * 2 %>px ;
+      height: <%= @student.height %>px ;
+      text-align: center;
+      color: <%= @student.color %> ;
+    }
+    p{
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class= <%= @student.name %> >
+    <p>
+      <%= @student.name %> <br>
+      <%= @student.gpa %>
+    </p>
+  </div>
+</body>
+</html>
+
+<%= @student.name %>
+<%= @student.weight %> <br>
+<%= @student.height %> <br>
+<%= @student.color %> <br>
+<%= @student.gpa %> <br>
