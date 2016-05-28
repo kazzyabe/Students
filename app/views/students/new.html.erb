@@ -1,30 +1,40 @@
-<%= form_for :student, url: students_path do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New</title>
+</head>
+<body>
+  <%= form_for :student, url: students_path do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
 
-  <p>
-    <%= f.label :weight %><br>
-    <%= f.number_field :weight, :class =>'text_field', :step => 0.1 %>
-  </p>
+    <p>
+      <%= f.label :weight %><br>
+      <%= f.number_field :weight, :class =>'text_field', :step => 0.1 %>
+    </p>
 
-  <p>
-    <%= f.label :height %><br>
-    <%= f.number_field :height, :class =>'text_field', :step => 0.1 %>
-  </p>
+    <p>
+      <%= f.label :height %><br>
+      <%= f.number_field :height, :class =>'text_field', :step => 0.1 %>
+    </p>
 
-  <p>
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
-  </p>
+    <p>
+      <%= f.label :color %><br>
+      <%= f.text_field :color %>
+    </p>
 
-  <p>
-    <%= f.label :gpa %><br>
-    <%= f.number_field :gpa, :min => 0, :max => 4, :step => 0.1 %>
-  </p>
+    <p>
+      <%= f.label :gpa %><br>
+      <%= f.number_field :gpa, :min => 0, :max => 4, :step => 0.1 %>
+    </p>
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+    <p>
+      <%= f.submit %>
+      <%= link_to "Back", students_path %>
+    </p>
+  <% end %>
+</body>
+</html>

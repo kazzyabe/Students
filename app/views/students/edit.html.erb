@@ -1,1 +1,42 @@
-<h1>edit</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit</title>
+</head>
+<body>
+  <h1>Editing <%= @student %> </h1>
+  <%= form_for :student, url: student_path(@student), method: :patch do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :weight %><br>
+    <%= f.number_field :weight, :class =>'text_field', :step => 0.1 %>
+  </p>
+
+  <p>
+    <%= f.label :height %><br>
+    <%= f.number_field :height, :class =>'text_field', :step => 0.1 %>
+  </p>
+
+  <p>
+    <%= f.label :color %><br>
+    <%= f.text_field :color %>
+  </p>
+
+  <p>
+    <%= f.label :gpa %><br>
+    <%= f.number_field :gpa, :min => 0, :max => 4, :step => 0.1 %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+    <%= link_to "Back", students_path %>
+  </p>
+
+<% end %>
+</body>
+</html>

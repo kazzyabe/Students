@@ -1,1 +1,45 @@
-<h1>index</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>index</title>
+  <style>
+    <% @student.each do |s| %>
+    table{
+      margin-left: 10px;
+      margin-bottom: 0px;
+      display: inline-table;;
+    }
+    table.<%= s.name %> {
+      border-style: solid;
+      border-color: <%= s.color %> ;
+      width: <%= s.weight * 2 %>px ;
+      height: <%= s.height %>px ;
+      text-align: center;
+      color: <%= s.color %> ;
+    }
+    <% end %>
+  </style>
+</head>
+<body>
+  <table><tr valign="bottom">
+  <% @student.each do |s| %>
+  <td>
+  <table class= <%= s.name %>>
+  <td >
+    <%= s.name %> <br>
+    <%= s.gpa %> <br>
+    <%= link_to "show", student_path(s) %> <br>
+    <%= link_to "Edit", edit_student_path(s) %> <br>
+    <%= link_to 'Destroy', student_path(s),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+  </td>
+  </table>
+  </td>
+  <% end %>
+  </tr></table>
+  <br>
+  <%= link_to "New Student", new_student_path %>
+</body>
+</html>
