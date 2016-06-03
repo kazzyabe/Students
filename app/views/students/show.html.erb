@@ -28,6 +28,11 @@
       border-color: <%= @student.color %> ;
       text-align: center;
     }
+    b{
+      font-size: 150%;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
 
   </style>
 </head>
@@ -49,7 +54,7 @@
     <tr>
       <td>
         <p>
-            There are <%= @num_s %> students in total. <br>
+            There are <b><%= @num_s %></b> students in total. <br>
             For weight, it is ranked from heaviest to lightest. <br>
             For height, it is ranked from tallest to shortest. <br>
             For gpa, it is ranked from highest to lowest. <br>
