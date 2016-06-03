@@ -15,6 +15,20 @@
       text-align: center;
       color: <%= @student.color %> ;
     }
+    p{
+      color: red;
+      text-decoration: underline;
+      text-transform: uppercase;
+    }
+    .rank{
+      font-size: 250%
+    }
+    table.outer{
+      border-style:dotted;
+      border-color: <%= @student.color %> ;
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
@@ -25,6 +39,41 @@
       <%= link_to "Back", students_path %> <br>
       <%= link_to "Edit", edit_student_path(@student) %>
     </td>
+  </table> <br>
+  <table class="outer">
+    <tr>
+      <td>
+        <h2 class="rank">Ranking</h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>
+            There are <%= @num_s %> students in total. <br>
+            For weight, it is ranked from heaviest to lightest. <br>
+            For height, it is ranked from tallest to shortest. <br>
+            For gpa, it is ranked from highest to lowest. <br>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table align="center">
+          <tr>
+            <td class="rank">Weight:</td>
+            <th class="rank"><%= @rank_list[0].ordinalize %></th>
+          </tr>
+          <tr>
+            <td class="rank">Height:</td>
+            <th class="rank"><%= @rank_list[1].ordinalize %></th>
+          </tr>
+          <tr>
+            <td class="rank">GPA:</td>
+            <th class="rank"><%= @rank_list[2].ordinalize %></th>
+          </tr>
+        </table>
+      </td>
+    </tr>
   </table>
 </body>
 </html>

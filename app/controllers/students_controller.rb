@@ -16,9 +16,27 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
+    @rank_list = [1,1,1]
+    @num_s = 0
+
+    Student.all.each do |s|
+      @num_s = @num_s + 1
+      if s.name != @student.name
+        if s.weight > @student.weight
+          @rank_list[0] = @rank_list[0] + 1
+        end
+        if s.height > @student.height
+          @rank_list[1] = @rank_list[1] + 1
+        end
+        if s.gpa > @student.gpa
+          @rank_list[2] = @rank_list[2] + 1
+        end
+      end
+    end
   end
 
   def new
+    @student = Student.new
   end
 
   def edit
@@ -28,8 +46,11 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
 
-    @student.save
-    redirect_to @student
+    if @student.save
+      redirect_to @student
+    else
+      render 'new'
+    end
   end
 
   def update
