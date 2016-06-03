@@ -7,7 +7,9 @@ ruby '2.2.4'
 gem 'rails', '4.2.6'
 # Use pg as the database for Active Record
 gem 'pg'
-
+# chartkick
+gem "chartkick"
+# unicorn
 gem 'unicorn'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

@@ -43,6 +43,11 @@
   <% end %>
   </tr></table>
   <br>
-  <%= link_to "New Student", new_student_path %>
+  <%= link_to "New Student", new_student_path %> <br>
+  <%= column_chart [
+    {name: "Weight", data: @weight},
+    {name: "Height", data: @height},
+    ], xtitle: "Name", ytitle: "cm"%> <br>
+  <%= column_chart @gpa, xtitle: "Name", ytitle: "GPA", colors: ["orange"], max: 4.0%>
 </body>
 </html>

@@ -1,6 +1,17 @@
 class StudentsController < ApplicationController
   def index
     @student = Student.all
+
+    @weight = []
+    @height = []
+    @gpa = []
+
+
+    @student.each do |s|
+      @weight.push([s.name, s.weight])
+      @height.push([s.name, s.height])
+      @gpa.push([s.name, s.gpa])
+    end
   end
 
   def show
@@ -34,7 +45,7 @@ class StudentsController < ApplicationController
   def destroy
     @student = Student.find(params[:id])
     @student.destroy
-    
+
     redirect_to students_path
   end
 
