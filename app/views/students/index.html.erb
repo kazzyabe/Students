@@ -13,7 +13,6 @@
     div.overflow{
       overflow: auto;
     }
-    <% @student.each do |s| %>
     table{
       margin-left: 10px;
       margin-bottom: 0px;
@@ -26,14 +25,15 @@
       height:200px;
       text-align: center;
     }
-    table.<%= s.name %> {
-      border-style: solid;
-      border-color: <%= s.color %> ;
-      width: <%= s.weight * 2  %>px ;
-      height: <%= s.height %>px ;
-      text-align: center;
-      color: <%= s.color %> ;
-    }
+    <% @student.each do |s| %>
+      table.<%= s.name %> {
+        border-style: solid;
+        border-color: <%= s.color %> ;
+        width: <%= s.weight * 2  %>px ;
+        height: <%= s.height %>px ;
+        text-align: center;
+        color: <%= s.color %> ;
+      }
     <% end %>
   </style>
 </head>
@@ -42,28 +42,28 @@
   <p class="alert">If you want to add a new student, look at the end of the students' list</p>
   <div class="overflow">
     <table><tr valign="bottom">
-    <% @student.each do |s| %>
-    <td>
-    <table class= <%= s.name %>>
-    <td >
-      <%= s.name %> <br>
-      <%= s.gpa %> <br>
-      <%= link_to "show", student_path(s) %> <br>
-      <%= link_to "Edit", edit_student_path(s) %> <br>
-      <%= link_to 'Destroy', student_path(s),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %>
-    </td>
-    </table>
-    </td>
-    <% end %>
-    <td>
-      <table class="new">
+      <% @student.each do |s| %>
         <td>
-          <%= link_to "New", new_student_path %>
+        <table class= <%= s.name %>>
+        <td >
+          <%= s.name %> <br>
+          <%= s.gpa %> <br>
+          <%= link_to "show", student_path(s) %> <br>
+          <%= link_to "Edit", edit_student_path(s) %> <br>
+          <%= link_to 'Destroy', student_path(s),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
         </td>
-      </table>
-    </td>
+        </table>
+        </td>
+      <% end %>
+      <td>
+        <table class="new">
+          <td>
+            <%= link_to "New", new_student_path %>
+          </td>
+        </table>
+      </td>
     </tr></table>
   </div>
   <br>
