@@ -30,6 +30,13 @@
     </p>
 
     <p>
+      <%= f.label :gender %> <br>
+      Male:<%= f.radio_button :gender, 'male' %> <br>
+      Female:<%= f.radio_button :gender, 'female' %> <br>
+      Neutral:<%= f.radio_button :gender, 'neutral' %> <br>
+    </p>
+
+    <p>
       <%= f.label :weight %><br>
       <%= f.number_field :weight, :class =>'text_field', :step => 0.1 %>
     </p>
@@ -41,7 +48,8 @@
 
     <p>
       <%= f.label :color %><br>
-      <%= f.text_field :color %>
+      <%= f.text_field :color %> <br>
+      <%= link_to 'Available Colours?', 'http://www.w3schools.com/colors/colors_names.asp', :target => '_blank' %>
     </p>
 
     <p>

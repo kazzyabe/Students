@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <title>Edit</title>
   <style>
-    body{
-      background-color:#E6E6E6;
-    }
+  body{
+    <% if @student.gender == "male" %>
+      background-color:#CEF6F5;
+    <% elsif @student.gender == "female" %>
+      background-color: #F8E0F7;
+    <% elsif @student.gender == "neutral" %>
+      background-color: #E2A9F3;
+    <% end %>
+  }
   </style>
 </head>
 <body>
-  <h1>Editing <%= @student %> </h1>
+  <h1>Editing</h1>
   <%= form_for :student, url: student_path(@student), method: :patch do |f| %>
     <% if @student.errors.any? %>
       <div id="error_explanation">
@@ -31,6 +37,13 @@
   </p>
 
   <p>
+    <%= f.label :gender %> <br>
+    Male:<%= f.radio_button :gender, 'male' %> <br>
+    Female:<%= f.radio_button :gender, 'female' %> <br>
+    Neutral:<%= f.radio_button :gender, 'neutral' %> <br>
+  </p>
+
+  <p>
     <%= f.label :weight %><br>
     <%= f.number_field :weight, :class =>'text_field', :step => 0.1 %>
   </p>
@@ -42,7 +55,8 @@
 
   <p>
     <%= f.label :color %><br>
-    <%= f.text_field :color %>
+    <%= f.text_field :color %> <br>
+    <%= link_to 'Available Colours?', 'http://www.w3schools.com/colors/colors_names.asp', :target => '_blank' %>
   </p>
 
   <p>

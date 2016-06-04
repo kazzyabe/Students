@@ -5,7 +5,13 @@
   <title><%= @student.name %></title>
   <style>
     body{
-      background-color:#E6E6E6;
+      <% if @student.gender == "male" %>
+        background-color:#CEF6F5;
+      <% elsif @student.gender == "female" %>
+        background-color: #F8E0F7;
+      <% elsif @student.gender == "neutral" %>
+        background-color: #E2A9F3;
+      <% end %>
     }
     table.<%= @student.name %> {
       border-style: solid;
@@ -40,6 +46,7 @@
   <table align="center" class= <%= @student.name %> >
     <td>
       <%= @student.name %> <br>
+      <%= @student.gender %> <br>
       <%= @student.gpa %> <br>
       <%= link_to "Back", students_path %> <br>
       <%= link_to "Edit", edit_student_path(@student) %>
@@ -55,6 +62,7 @@
       <td>
         <p>
             There are <b><%= @num_s %></b> students in total. <br>
+            There are <b><%= @num_g %></b> <%= @student.gender %> students in total. <br>
             For weight, it is ranked from heaviest to lightest. <br>
             For height, it is ranked from tallest to shortest. <br>
             For gpa, it is ranked from highest to lowest. <br>
@@ -65,16 +73,24 @@
       <td>
         <table align="center">
           <tr>
-            <td class="rank">Weight:</td>
-            <th class="rank"><%= @rank_list[0].ordinalize %></th>
+            <th class="rank">
+              TOTAL
+            </th>
+            <th class="rank">
+              <%= @student.gender.capitalize %>
+            </th>
           </tr>
           <tr>
-            <td class="rank">Height:</td>
-            <th class="rank"><%= @rank_list[1].ordinalize %></th>
+            <td class="rank">Weight: <b><%= @rank_list[0].ordinalize %></b></td>
+            <td class="rank">Weight: <b><%= @rank_list_g[0].ordinalize %></b></td>
           </tr>
           <tr>
-            <td class="rank">GPA:</td>
-            <th class="rank"><%= @rank_list[2].ordinalize %></th>
+            <td class="rank">Height: <b><%= @rank_list[1].ordinalize %></b></td>
+            <td class="rank">Weight: <b><%= @rank_list_g[1].ordinalize %></b></td>
+          </tr>
+          <tr>
+            <td class="rank">GPA: <b><%= @rank_list[2].ordinalize %></b></td>
+            <td class="rank">Weight: <b><%= @rank_list_g[2].ordinalize %></b></td>
           </tr>
         </table>
       </td>
