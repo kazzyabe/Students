@@ -29,7 +29,7 @@
     table.<%= s.name %> {
       border-style: solid;
       border-color: <%= s.color %> ;
-      width: <%= s.weight * 2 %>px ;
+      width: <%= s.weight * 2  %>px ;
       height: <%= s.height %>px ;
       text-align: center;
       color: <%= s.color %> ;
@@ -70,7 +70,7 @@
   <%= column_chart [
     {name: "Weight", data: @weight},
     {name: "Height", data: @height},
-    ], xtitle: "Name", ytitle: "cm"%> <br>
+    ], xtitle: "Name", ytitle: "cm/kg"%> <br>
   <%= column_chart @gpa, xtitle: "Name", ytitle: "GPA", colors: ["orange"], max: 4.0%>
 </body>
 </html>
