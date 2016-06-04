@@ -6,6 +6,7 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+2.2.4
 
 * System dependencies
 
@@ -26,3 +27,14 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+Assignment 2 - features
+1. shows graphs for weight, height, and GPA
+2. the colour for font and border matches to the colour the student chose
+3. boxes of students are lined up in one line and aligned at the bottom
+4. if boxes of students cannot fit in a page, it can be scrolled
+5. when go to 'show', ranking is shown there
+6. when create a new student or edit a student, it gives error messages and re-direct to the form
+    if some fields are blank
+7. For weight, height, and GPA, decimals are allowed, input type number is used for their forms
+    so you can use up/down arrow to change the values
