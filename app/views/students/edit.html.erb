@@ -13,62 +13,99 @@
       background-color: #E2A9F3;
     <% end %>
   }
+  table.alert{
+    color:red;
+  }
+  table.field{
+    text-align: center;
+    border-style: dotted;
+    border-color: <%= @student.color %>;
+  }
   </style>
 </head>
 <body>
-  <h1>Editing</h1>
-  <%= form_for :student, url: student_path(@student), method: :patch do |f| %>
+    <%= form_for :student, url: student_path(@student), method: :patch do |f| %>
     <% if @student.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@student.errors.count, "error") %> prohibited
-          this student from being saved:
-        </h2>
-        <ul>
-          <% @student.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
+    <table align="center" class="alert">
+      <td>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@student.errors.count, "error") %> prohibited
+            this student from being saved:
+          </h2>
+          <ul>
+            <% @student.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </td>
+    </table>
     <% end %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name, :size => '10' %>
-  </p>
-
-  <p>
-    <%= f.label :gender %> <br>
-    Male:<%= f.radio_button :gender, 'male' %> <br>
-    Female:<%= f.radio_button :gender, 'female' %> <br>
-    Neutral:<%= f.radio_button :gender, 'neutral' %> <br>
-  </p>
-
-  <p>
-    <%= f.label :weight %><br>
-    <%= f.number_field :weight, :class =>'text_field', :min => 0, :max => 500, :step => 0.1 %>kg
-  </p>
-
-  <p>
-    <%= f.label :height %><br>
-    <%= f.number_field :height, :class =>'text_field', :min => 0, :max => 500, :step => 0.1 %>cm
-  </p>
-
-  <p>
-    <%= f.label :color %><br>
-    <%= f.text_field :color %> <br>
-    <%= link_to 'Available Colours?', 'http://www.w3schools.com/colors/colors_names.asp', :target => '_blank' %>
-  </p>
-
-  <p>
-    <%= f.label :gpa %><br>
-    <%= f.number_field :gpa, :min => 0, :max => 4, :step => 0.1 %>
-  </p>
-
-  <p>
-    <%= f.submit "Update" %>
-    <%= link_to "Back", students_path %>
-  </p>
-
-<% end %>
+    <table align="center" class="field">
+      <tr>
+        <td colspan="2">
+          <h1>Editing <%= @student.name %></h1>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :name %>:
+        </td>
+        <td>
+          <%= f.text_field :name, :size => '10' %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :gender %>:
+        </td>
+        <td>
+          Male:<%= f.radio_button :gender, 'male' %> <br>
+          Female:<%= f.radio_button :gender, 'female' %> <br>
+          Neutral:<%= f.radio_button :gender, 'neutral' %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :weight %>:
+        </td>
+        <td>
+          <%= f.number_field :weight, :class =>'text_field', :min => 0, :max => 500, :step => 0.1 %>kg
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :height %>:
+        </td>
+        <td>
+          <%= f.number_field :height, :class =>'text_field', :min => 0, :max => 500, :step => 0.1 %>cm
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :color %>:
+        </td>
+        <td>
+          <%= f.text_field :color %> <br>
+          <%= link_to 'Available Colours?', 'http://www.w3schools.com/colors/colors_names.asp', :target => '_blank' %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :gpa %>:
+        </td>
+        <td>
+          <%= f.number_field :gpa, :min => 0, :max => 4, :step => 0.1 %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <%= f.submit "Update" %>
+          <%= link_to "Back", students_path %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
 </body>
 </html>
